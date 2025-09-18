@@ -41,7 +41,7 @@ const CommentBox = ({ selectedBlog }) => {
   const commentHandler = async () => {
     try {
       const res = await axios.post(
-        `https://blog-3up1.onrender.com/blogs/comment/${selectedBlog._id}/create`,
+        `https://blog-3up1.onrender.com/api/v1/comment/${selectedBlog._id}/create`,
         { content },
         {
           headers: {
@@ -78,7 +78,7 @@ const CommentBox = ({ selectedBlog }) => {
   const deleteComment = async (commentId) => {
     try {
       const res = await axios.delete(
-        `https://blog-3up1.onrender.com/blogs/comment/${commentId}/delete`,
+        `https://blog-3up1.onrender.com/api/v1/comment/${commentId}/delete`,
         { withCredentials: true }
       );
 
@@ -98,7 +98,7 @@ const CommentBox = ({ selectedBlog }) => {
   const editCommentHandler = async (commentId) => {
     try {
       const res = await axios.put(
-        `https://blog-3up1.onrender.com/blogs/comment/${commentId}/edit`,
+        `https://blog-3up1.onrender.com/api/v1/comment/${commentId}/edit`,
         { content: editedContent },
         {
           withCredentials: true,
@@ -125,7 +125,7 @@ const CommentBox = ({ selectedBlog }) => {
   const likeCommentHandler = async (commentId) => {
     try {
       const res = await axios.get(
-        `https://blog-3up1.onrender.com/blogs/comment/${commentId}/like`,
+        `https://blog-3up1.onrender.com/api/v1/comment/${commentId}/like`,
         {
           withCredentials: true,
         }
@@ -149,7 +149,7 @@ const CommentBox = ({ selectedBlog }) => {
     const getAllCommentsOfBlog = async () => {
       try {
         const res = await axios.get(
-          `https://blog-3up1.onrender.com/blogs/comment/${selectedBlog._id}/comment/all`
+          `https://blog-3up1.onrender.com/api/v1/comment/${selectedBlog._id}/comment/all`
         );
         const data = res.data.Comments;
         dispatch(setComment(data));

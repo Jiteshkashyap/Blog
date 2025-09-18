@@ -7,7 +7,7 @@ const PopularAuthors = () => {
   const getAllUser = async () => {
     try {
       const res = await axios.get(
-        `https://blog-3up1.onrender.com/blogs/user/all-users`,
+        `https://blog-3up1.onrender.com/api/v1/user/all-users`,
         { withCredentials: true }
       );
       if (res.data.status) {

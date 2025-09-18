@@ -74,7 +74,7 @@ const UpdateBlog = () => {
       dispatch(setLoading(true));
 
       const res = await axios.put(
-        `https://blog-3up1.onrender.com/blogs/blog/${id}`,
+        `https://blog-3up1.onrender.com/api/v1/blog/${id}`,
         formData,
         {
           headers: {
@@ -97,7 +97,7 @@ const UpdateBlog = () => {
   const togglePublish = async (action) => {
     try {
       const res = await axios.patch(
-        `https://blog-3up1.onrender.com/blogs/blog/${id}`,
+        `https://blog-3up1.onrender.com/api/v1/blog/${id}`,
         { isPublished: action },
         { withCredentials: true }
       );
@@ -117,7 +117,7 @@ const UpdateBlog = () => {
   const deleteBlog = async () => {
     try {
       const res = await axios.delete(
-        `https://blog-3up1.onrender.com/blogs/blog/delete/${id}`,
+        `https://blog-3up1.onrender.com/api/v1/blog/delete/${id}`,
         { withCredentials: true }
       );
       if (res.data.success) {

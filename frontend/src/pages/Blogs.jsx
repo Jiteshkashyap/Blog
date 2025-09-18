@@ -12,7 +12,7 @@ const Blogs = () => {
     const getAllPublishedBlogs = async () => {
       try {
         const res = await axios.get(
-          `https://blog-3up1.onrender.com/blogs/blog/get-published-blogs`,
+          `https://blog-3up1.onrender.com/api/v1/blog/get-published-blogs`,
           { withCredentials: true }
         );
         if (res.data.success) {

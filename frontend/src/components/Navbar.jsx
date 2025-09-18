@@ -53,7 +53,7 @@ const Navbar = () => {
   const logoutHandler = async (e) => {
     try {
       const res = await axios.get(
-        "https://blog-3up1.onrender.com/blogs/user/logout",
+        "https://blog-3up1.onrender.com/api/v1/user/logout",
         {
           withCredentials: true,
         }

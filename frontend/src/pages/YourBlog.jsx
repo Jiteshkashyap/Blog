@@ -33,7 +33,7 @@ const YourBlog = () => {
   const getOwnBlogs = async () => {
     try {
       const res = await axios.get(
-        "https://blog-3up1.onrender.com/blogs/blog/get-own-blogs",
+        "https://blog-3up1.onrender.com/api/v1/blog/get-own-blogs",
         {
           withCredentials: true,
         }
@@ -53,7 +53,7 @@ const YourBlog = () => {
   const deleteBlog = async (id) => {
     try {
       const res = await axios.delete(
-        `https://blog-3up1.onrender.com/blogs/blog/delete/${id}`,
+        `https://blog-3up1.onrender.com/api/v1/blog/delete/${id}`,
         {
           withCredentials: true,
         }

@@ -41,7 +41,7 @@ const Signup = () => {
     try {
       dispatch(setLoading(true));
       const res = await axios.post(
-        `https://blog-3up1.onrender.com/blogs/user/register`,
+        `https://blog-3up1.onrender.com/api/v1/user/register`,
         user,
         {
           headers: {

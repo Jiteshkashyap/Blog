@@ -21,7 +21,7 @@ const Comments = () => {
   const getAllComments = async () => {
     try {
       const res = await axios.get(
-        `https://blog-3up1.onrender.com/blogs/comment/my-blogs/comments`,
+        `https://blog-3up1.onrender.com/api/v1/comment/my-blogs/comments`,
         {
           withCredentials: true,
         }
