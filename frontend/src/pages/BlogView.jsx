@@ -61,7 +61,7 @@ const BlogView = () => {
     try {
       const action = liked ? "dislike" : "like";
       const res = await axios.get(
-        `https://blog-3up1.onrender.com/api/v1/blog/${selectedBlog._id}/${action}`,
+        `https://blog-3up1.onrender.com/blog/${selectedBlog._id}/${action}`,
         { withCredentials: true }
       );
       if (res.data.success) {
@@ -118,7 +118,7 @@ const BlogView = () => {
           <div className="flex items-center justify-between flex-wrap gap-4">
             <div className=" flex items-center space-x-4">
               <Avatar>
-                <AvatarImage src={selectedBlog?.author?.photoUrl} alt="author" />
+                <AvatarImage src={selectedBlog.author.photoUrl} alt="author" />
                 <AvatarFallback>KW</AvatarFallback>
               </Avatar>
               <div>
@@ -178,7 +178,7 @@ const BlogView = () => {
               </Button>
               <Button variant="ghost">
                 <MessageSquare className="h-4 w-4" />
-                <span>{selectedBlog.comments.length} Comment</span>
+                <span>1 Comment</span>
               </Button>
             </div>
             <div className="flex items-center space-x-2">
