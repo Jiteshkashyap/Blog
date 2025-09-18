@@ -30,9 +30,13 @@ app.use("/api/v1/blog", blogRoute)
 app.use("/api/v1/comment",commentRoute)
 
 app.use(express.static(path.join(_dirname , "/frontend/dist")))
-app.get("*" , (_ ,res)=>{
+app.get("*" , (req ,res)=>{
     res.sendFile(path.resolve(_dirname ,"frontend", "dist" , "index.html"))
 })
+
+app.all("/api/*", (req, res) => {
+  res.status(404).json({ message: `API route not found: ${req.originalUrl}` });
+});
 
 app.use((req, res) => {
   res.status(404).json({ message: `Route not found: ${req.originalUrl}` });
