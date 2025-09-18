@@ -178,7 +178,7 @@ const BlogView = () => {
               </Button>
               <Button variant="ghost">
                 <MessageSquare className="h-4 w-4" />
-                <span>1 Comment</span>
+                <span>{selectedBlog.comments.length} Comment</span>
               </Button>
             </div>
             <div className="flex items-center space-x-2">
