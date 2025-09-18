@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import auth from "../assets/auth.jpg";
-import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "../components/ui/card";
 import { Label } from "../components/ui/label";
 import { Input } from "../components/ui/input";
 import { Eye, EyeOff, Loader2 } from "lucide-react";
@@ -13,49 +18,49 @@ import { setLoading } from "../components/redux/authSlice";
 
 const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const navigate=useNavigate();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
-  const {loading}=useSelector(store=>store.auth)
-  const [user,setUser]= useState({
-    firstName:"",
-    lastName:"",
-    email:"",
-    password:"",
-
-  })
-  const handleChange=(e)=>{
-    const {name,value}=e.target;
-    setUser((prev)=>({
-        ...prev,
-        [name]:value
-    }))
-  }
-  const handleSubmit=async (e)=>{
+  const { loading } = useSelector((store) => store.auth);
+  const [user, setUser] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+  });
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setUser((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(user)
-  
-  try {
-     dispatch(setLoading(true))
-    const res= await  axios.post(`http://localhost:8000/api/v1/user/register`,user,{
-        headers:{
-            "Content-Type":"application/json"
-        },
-        withCredentials:true
-    })
-    if(res.data.success){
-       navigate("/login")
-       toast.success(res.data.message)
+    console.log(user);
+
+    try {
+      dispatch(setLoading(true));
+      const res = await axios.post(
+        `https://blog-3up1.onrender.com/blogs/user/register`,
+        user,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        }
+      );
+      if (res.data.success) {
+        navigate("/login");
+        toast.success(res.data.message);
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error(error.response.data.message);
+    } finally {
+      dispatch(setLoading(false));
     }
-    
-  } catch (error) {
-    console.log(error)
-    toast.error(error.response.data.message)
-    
-  }
-  finally{
-       dispatch(setLoading(false))
-  }
-}
+  };
   return (
     <div className="flex h-screen overflow-hidden">
       <div className="hidden md:block w-1/2">
@@ -65,7 +70,9 @@ const Signup = () => {
         <Card className="w-full max-w-md p-6 shadow-lg rounded-2xl dark:bg-gray-800 dark:border-gray-600">
           <CardHeader>
             <CardTitle>
-              <h1 className="text-center text-xl font-semibold">Create an Account</h1>
+              <h1 className="text-center text-xl font-semibold">
+                Create an Account
+              </h1>
             </CardTitle>
             <p className="mt-2 text-sm font-serif text-center dark:text-gray-300">
               Enter your details below to create your account
@@ -130,11 +137,14 @@ const Signup = () => {
                 </button>
               </div>
               <Button type="submit" className="w-full">
-                {
-                    loading? (<>
-                <Loader2 className="mr-2 w-4 h-4 animate-spin" />Please Wait   </>):
-                    ("Signup")
-                }
+                {loading ? (
+                  <>
+                    <Loader2 className="mr-2 w-4 h-4 animate-spin" />
+                    Please Wait{" "}
+                  </>
+                ) : (
+                  "Signup"
+                )}
               </Button>
               <p className="text-center text-gray-600 dark:text-gray-300">
                 Already have an account?

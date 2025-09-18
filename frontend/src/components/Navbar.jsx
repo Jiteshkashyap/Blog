@@ -33,14 +33,14 @@ import { HiMenuAlt1, HiMenuAlt3 } from "react-icons/hi";
 const Navbar = () => {
   const { user } = useSelector((store) => store.auth);
   const { theme } = useSelector((store) => store.theme);
-  const [openNav , setOpenNav]=useState(false)
+  const [openNav, setOpenNav] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const toggleNav= ()=>{
-    setOpenNav(!openNav)
-  }
+  const toggleNav = () => {
+    setOpenNav(!openNav);
+  };
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -52,9 +52,12 @@ const Navbar = () => {
 
   const logoutHandler = async (e) => {
     try {
-      const res = await axios.get("http://localhost:8000/api/v1/user/logout", {
-        withCredentials: true,
-      });
+      const res = await axios.get(
+        "https://blog-3up1.onrender.com/blogs/user/logout",
+        {
+          withCredentials: true,
+        }
+      );
       if (res.data.success) {
         navigate("/");
         dispatch(setUser(null));
@@ -86,7 +89,7 @@ const Navbar = () => {
               <Input
                 type="text"
                 value={searchTerm}
-                onChange={(e)=>setSearchTerm(e.target.value)}
+                onChange={(e) => setSearchTerm(e.target.value)}
                 placeholder="Search..."
                 className="border border-gray-700 dark:bg-gray-900 bg-gray-300 w-[300px] hidden md:block"
               />
@@ -172,7 +175,9 @@ const Navbar = () => {
                     </DropdownMenuContent>
                   </DropdownMenu>
 
-                  <Button className="hidden md:block" onClick={logoutHandler}>LogOut</Button>
+                  <Button className="hidden md:block" onClick={logoutHandler}>
+                    LogOut
+                  </Button>
                 </div>
               ) : (
                 <div className="ml-7 md:flex gap-2 ">
@@ -185,11 +190,17 @@ const Navbar = () => {
                 </div>
               )}
             </div>
-            {
-              openNav ? <HiMenuAlt3 onClick={toggleNav} className="w-7 h-7 md:hidden" /> : <HiMenuAlt1 className="w-7 h-7 md:hidden" onClick={toggleNav}/>
-            }
+            {openNav ? (
+              <HiMenuAlt3 onClick={toggleNav} className="w-7 h-7 md:hidden" />
+            ) : (
+              <HiMenuAlt1 className="w-7 h-7 md:hidden" onClick={toggleNav} />
+            )}
           </nav>
-          <ResponsiveMenu openNav={openNav} setOpenNav={setOpenNav} logoutHandler={logoutHandler} />
+          <ResponsiveMenu
+            openNav={openNav}
+            setOpenNav={setOpenNav}
+            logoutHandler={logoutHandler}
+          />
         </div>
       </div>
     </>
