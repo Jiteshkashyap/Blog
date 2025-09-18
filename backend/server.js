@@ -30,7 +30,7 @@ app.use("/api/v1/blog", blogRoute)
 app.use("/api/v1/comment",commentRoute)
 
 app.use(express.static(path.join(_dirname , "/frontend/dist")))
-app.get("*", (req, res, next) => {
+app.get("/*", (req, res, next) => {
   if (req.originalUrl.startsWith("/api")) {
     return next(); // let API routes fall through
   }
