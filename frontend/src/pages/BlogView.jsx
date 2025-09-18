@@ -118,7 +118,7 @@ const BlogView = () => {
           <div className="flex items-center justify-between flex-wrap gap-4">
             <div className=" flex items-center space-x-4">
               <Avatar>
-                <AvatarImage src={selectedBlog.author.photoUrl} alt="author" />
+                <AvatarImage src={selectedBlog?.author?.photoUrl} alt="author" />
                 <AvatarFallback>KW</AvatarFallback>
               </Avatar>
               <div>
