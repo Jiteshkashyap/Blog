@@ -24,8 +24,18 @@ jobs:
       - name: Install backend dependencies
         run: npm install
 
-      - name: Run backend tests
-        run: npm test || echo "⚠️ No backend tests defined"
+      - name: Run backend tests (PowerShell compatible)
+        run: |
+          if (Test-Path package.json) {
+            $packageJson = Get-Content package.json -Raw
+            if ($packageJson -match '"test"') {
+              npm test
+            } else {
+              Write-Host "⚠️ No backend tests defined"
+            }
+          } else {
+            Write-Host "⚠️ package.json not found"
+          }
 
   frontend:
     name: Frontend
@@ -45,4 +55,3 @@ jobs:
         run: |
           npm install
           npm run build
-
