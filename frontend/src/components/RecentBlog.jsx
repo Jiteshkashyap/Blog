@@ -89,6 +89,7 @@ const RecentBlogs = () => {
               ].map((title, index) => {
                 return (
                   <li
+                  onClick={() => navigate(`/blogs`)}
                     key={index}
                     className="text-sm dark:text-gray-100 hover:underline cursor-pointer"
                   >
