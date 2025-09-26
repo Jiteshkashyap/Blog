@@ -105,6 +105,7 @@ const CreateBlog = () => {
                   </SelectItem>
                   <SelectItem value="Blogging">Blogging</SelectItem>
                   <SelectItem value="Photography">Photography</SelectItem>
+                  <SelectItem value="Sports">Sports</SelectItem>
                   <SelectItem value="Cooking">Cooking</SelectItem>
                 </SelectGroup>
               </SelectContent>

@@ -105,7 +105,7 @@ const BlogView = () => {
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <BreadcrumbPage>{selectedBlog.title}</BreadcrumbPage>
+              <BreadcrumbPage>{selectedBlog?.title}</BreadcrumbPage>
             </BreadcrumbItem>
           </BreadcrumbList>
         </Breadcrumb>
@@ -113,22 +113,22 @@ const BlogView = () => {
         {/* blog reader */}
         <div className="my-8">
           <h1 className="text-4xl font-bold tracking-tight mb-4">
-            {selectedBlog.title}
+            {selectedBlog?.title}
           </h1>
           <div className="flex items-center justify-between flex-wrap gap-4">
             <div className=" flex items-center space-x-4">
               <Avatar>
-                <AvatarImage src={selectedBlog.author.photoUrl} alt="author" />
+                <AvatarImage src={selectedBlog?.author?.photoUrl} alt="author" />
                 <AvatarFallback>KW</AvatarFallback>
               </Avatar>
               <div>
                 <p className="font-medium">
-                  {selectedBlog.author.firstName} {selectedBlog.author.lastName}
+                  {selectedBlog?.author?.firstName} {selectedBlog?.author?.lastName}
                 </p>
               </div>
             </div>
             <p className="text-sm text-muted-foreground">
-              Published on {changeTimeFormat(selectedBlog.createdAt)} . 8 min
+              Published on {changeTimeFormat(selectedBlog?.createdAt)} . 8 min
               read
             </p>
           </div>
@@ -136,19 +136,19 @@ const BlogView = () => {
         {/* featured image */}
         <div className="mb-8 rounded-lg overflow-hidden">
           <img
-            src={selectedBlog.thumbnail}
+            src={selectedBlog?.thumbnail}
             alt="thumbnail"
             width={1000}
             height={500}
             className="w-full object-cover"
           />
           <p className="text-sm text-muted-foreground mt-2 italic">
-            {selectedBlog.subTitle}
+            {selectedBlog?.subTitle}
           </p>
         </div>
         <p
           className=""
-          dangerouslySetInnerHTML={{ __html: selectedBlog.description }}
+          dangerouslySetInnerHTML={{ __html: selectedBlog?.description }}
         />
         <div className="mt-10">
           <div className="flex flex-wrap gap-2 mb-8">
