@@ -152,6 +152,8 @@ export const getPublishedBlog=async(__,res)=>{
             path:"author",
             select:" firstName lastName photoUrl"
         })
+
+        console.log("Published blogs count:", blog.length);
         if(!blog){
             res.status(401).json({
                 message:"Blog not found",
