@@ -15,6 +15,7 @@ const Blogs = () => {
           `https://blog-3up1.onrender.com/api/v1/blog/get-published-blogs`,
           { withCredentials: true }
         );
+         console.log("Blogs from API:", res.data.blog.length);
         if (res.data.success) {
           dispatch(setBlog(res.data.blog));
         }
