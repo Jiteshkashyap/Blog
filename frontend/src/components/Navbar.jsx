@@ -120,7 +120,7 @@ const Navbar = () => {
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
                       <Avatar>
-                        <AvatarImage src={user.photoUrl || userLogo} />
+                        <AvatarImage src={user?.photoUrl || userLogo} />
                         <AvatarFallback>CN</AvatarFallback>
                       </Avatar>
                     </DropdownMenuTrigger>

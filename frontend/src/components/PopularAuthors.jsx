@@ -35,7 +35,7 @@ const PopularAuthors = () => {
             return (
               <div key={index} className="flex flex-col items-center gap-2">
                 <img
-                  src={user.photoUrl || userLogo}
+                  src={user?.photoUrl || userLogo}
                   alt=""
                   className="rounded-full h-16 w-16 md:w-32 md:h-32 "
                 />
