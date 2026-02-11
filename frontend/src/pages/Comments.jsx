@@ -58,15 +58,15 @@ const Comments = () => {
                 <TableRow key={index}>
                   <TableCell className="font-medium">
                     <h1 className=" w-[58px] md:w-full truncate">
-                      {comment.postId.title}
+                      {comment?.postId?.title}
                     </h1>
                   </TableCell>
                   <TableCell className=" w-[120px] md:w-auto truncate">
                     <h1 className=" w-[58px] md:w-full truncate">
-                      {comment.content}
+                      {comment?.content}
                     </h1>
                   </TableCell>
-                  <TableCell>{comment.userId.firstName}</TableCell>
+                  <TableCell>{comment?.userId?.firstName}</TableCell>
                   <TableCell className="text-right flex gap-3 items-center justify-center">
                     <Eye
                       className="cursor-pointer"

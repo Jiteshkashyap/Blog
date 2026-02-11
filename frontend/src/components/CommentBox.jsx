@@ -169,7 +169,7 @@ const CommentBox = ({ selectedBlog }) => {
           <AvatarFallback>CN</AvatarFallback>
         </Avatar>
         <h3 className=" font-semibold">
-          {user.firstName} {user.lastName}
+          {user?.firstName} {user?.lastName}
         </h3>
       </div>
       <div className="flex gap-3">
@@ -233,7 +233,7 @@ const CommentBox = ({ selectedBlog }) => {
                             className="flex gap-1 items-center cursor-pointer"
                             onClick={() => likeCommentHandler(item._id)}
                           >
-                            {item.likes.includes(user._id) ? (
+                            {item?.likes?.includes(user._id) ? (
                               <FaHeart fill="red" />
                             ) : (
                               <FaRegHeart />

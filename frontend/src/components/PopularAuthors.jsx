@@ -40,7 +40,7 @@ const PopularAuthors = () => {
                   className="rounded-full h-16 w-16 md:w-32 md:h-32 "
                 />
                 <p className="font-semibold">
-                  {user.firstName} {user.lastName}
+                  {user?.firstName} {user?.lastName}
                 </p>
               </div>
             );
