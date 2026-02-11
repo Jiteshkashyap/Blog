@@ -61,7 +61,7 @@ const CommentBox = ({ selectedBlog }) => {
         dispatch(setComment(updatedCommentData));
 
         const updatedBlogData = blog.map((blog) =>
-          blog._id === selectedBlog._id
+          blog?._id === selectedBlog?._id
             ? { ...blog, comments: updatedCommentData }
             : blog
         );

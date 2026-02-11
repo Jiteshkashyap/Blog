@@ -70,7 +70,7 @@ const BlogView = () => {
         setLike(!liked);
       }
       const updatedBlogData = blog.map((p) =>
-        p._id === selectedBlog._id
+        p?._id === selectedBlog?._id
           ? {
               ...p,
               likes: liked
