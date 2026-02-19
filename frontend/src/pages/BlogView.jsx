@@ -61,6 +61,10 @@ const BlogView = () => {
     }
   };
   const likeorDislikeHandler = async () => {
+    if (!user?._id) {
+    toast.error("You must be logged in to like a post");
+    return;
+   }
     try {
       const action = liked ? "dislike" : "like";
       const res = await axios.get(
@@ -77,8 +81,8 @@ const BlogView = () => {
           ? {
               ...p,
               likes: liked
-                ? p.likes.filter((id) => id !== user._id)
-                : [...p.likes, user._id],
+                ? p.likes?.filter((id) => id !== user?._id)
+                : [...p.likes, user?._id],
             }
           : p
       );
