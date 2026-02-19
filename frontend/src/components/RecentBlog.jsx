@@ -30,7 +30,7 @@ const RecentBlogs = () => {
     };
     getAllPublishedBlogs();
   }, []);
-  console.log(blog);
+  
   return (
     <div className="bg-gray-100 dark:bg-gray-800 pb-10">
       <div className="max-w-6xl mx-auto flex flex-col space-y-4 items-center">

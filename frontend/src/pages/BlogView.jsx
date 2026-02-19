@@ -24,8 +24,6 @@ const BlogView = () => {
   const dispatch = useDispatch();
   const { blog } = useSelector((store) => store.blog);
   const { user } = useSelector((store) => store.auth);
-  console.log("DEBUG 1: User is:", user); // Check if this is null
-  console.log("DEBUG 2: Blog Array is:", blog);
   const selectedBlog = blog?.find((blog) => blog?._id === blogId);
   if (!selectedBlog) {
   return <div className="pt-20 text-center">Loading...</div>;
