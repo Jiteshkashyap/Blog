@@ -233,7 +233,7 @@ const CommentBox = ({ selectedBlog }) => {
                             className="flex gap-1 items-center cursor-pointer"
                             onClick={() => likeCommentHandler(item._id)}
                           >
-                            {item?.likes?.includes(user._id) ? (
+                            {item?.likes?.includes(user?._id) ? (
                               <FaHeart fill="red" />
                             ) : (
                               <FaRegHeart />
@@ -245,7 +245,7 @@ const CommentBox = ({ selectedBlog }) => {
                       </div>
                     </div>
                   </div>
-                  {user._id === item?.userId?._id ? (
+                  {user?._id === item?.userId?._id ? (
                     <DropdownMenu>
                       <DropdownMenuTrigger>
                         <BsThreeDots />
